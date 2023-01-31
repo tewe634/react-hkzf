@@ -17,7 +17,7 @@ const Layout = React.lazy(() => import('../pages/layout'))
 const routes = [
     {
         path: '/',
-        element:<Navigate to='/home' />
+        element: <Navigate to='/home'/>,
     },
     {
         path: '/home',
@@ -25,10 +25,10 @@ const routes = [
         children: [
             {
                 path: '/home',
-                element:<Navigate to='/home'/>
+                element:<Navigate to='/home/home'/>
             },
             {
-                path: '/home',
+                path: '/home/home',
                 element:<Home/>
             },
             {

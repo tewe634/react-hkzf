@@ -2,7 +2,7 @@ import React,{Suspense} from 'react';
 import ReactDOM from 'react-dom/client';
 
 // 引入默认样式
-import './assets/css/index.less'
+import './assets/css/index.css'
 
 // 引入路由
 import { HashRouter } from 'react-router-dom';
