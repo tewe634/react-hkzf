@@ -5,3 +5,9 @@ export const getSwiperList = () => {
         method:'GET'
     })
 }
+export const getGroupArea = (val) => {
+    return requst({
+        url: '/home/groups?area=' + val,
+        method:'GET'
+    })
+}

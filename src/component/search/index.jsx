@@ -1,22 +1,40 @@
-import React, { memo } from 'react'
-import { SearchWarpper } from './style'
-import { SearchBar } from 'antd-mobile'
-import { GlobalOutline } from 'antd-mobile-icons'
+import React, { memo } from 'react';
+import { useNavigate } from 'react-router-dom';
+import { SearchWarpper } from './style';
+import { GlobalOutline, DownFill, SearchOutline } from 'antd-mobile-icons'
+import { shallowEqual, useSelector } from 'react-redux';
 
 const Search = memo(() => {
+    // 路由跳转
+    const navigate = useNavigate()
+    function changeToRouter() {
+        navigate('/map')
+    }
+    function changeToCity() {
+        navigate('/city')
+    }
+    // 获取store的数据
+    const { areaObj } = useSelector((state) => ({
+        areaObj: state.city.areaObj
+    }), shallowEqual)
     return (
         <SearchWarpper>
             <div className='search'>
-                <SearchBar placeholder='请输入小区或地址' style={{
-                    '--border-radius': '3px',
-                    '--background': '#ffffff',
-                    '--height': '34px',
-                    '--padding-left': '30px',
-                    '--placeholder-color': '#9c9fa1',
-                    '--font-size': '13px'
-                }} />
+                <div className="location" onClick={() => changeToCity()}>
+                    <span className='name'>{areaObj?.label}</span>
+                    <i className='iconfont'>
+                        <DownFill />
+                    </i>
+                </div>
+                <div className="form">
+                    <i className='icon-seach'>
+                        <SearchOutline />
+                    </i>
+                    <span className='text'>请输入小区或地址</span>
+                </div>
+
             </div>
-            <i className='iconfont'>
+            <i className='iconfont' onClick={() => changeToRouter()}>
                 <GlobalOutline />
             </i>
         </SearchWarpper>

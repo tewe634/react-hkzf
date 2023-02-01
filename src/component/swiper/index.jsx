@@ -11,7 +11,7 @@ const SwiperPage = memo((props) => {
     ))
     return (
         <div>
-            <Swiper loop>{items}</Swiper>
+            <Swiper autoplay loop>{items}</Swiper>
         </div>
     )
 })
