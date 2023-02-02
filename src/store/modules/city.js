@@ -32,10 +32,14 @@ const citySlice = createSlice({
         changeAreaListInfoAcation(state, { payload }) {
             state.areaList = payload  
         },
+        changeAreaObjInfoAction(state, { payload }) {
+            state.areaObj = payload
+        }
     }
 })
 export const {
     changeAreaIdInfoAction,
-    changeAreaListInfoAcation
+    changeAreaListInfoAcation,
+    changeAreaObjInfoAction
 } = citySlice.actions
 export default citySlice.reducer

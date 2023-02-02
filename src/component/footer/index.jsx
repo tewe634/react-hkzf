@@ -35,6 +35,7 @@ const Footer = memo(() => {
     // 编程式导航，点击时候路由跳转
     const navigate = useNavigate()
     function setRouteActive(val) {
+        console.log(val);
         navigate(`/home/${val}`)
     }
     return (

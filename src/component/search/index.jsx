@@ -7,12 +7,6 @@ import { shallowEqual, useSelector } from 'react-redux';
 const Search = memo(() => {
     // 路由跳转
     const navigate = useNavigate()
-    function changeToRouter() {
-        navigate('/map')
-    }
-    function changeToCity() {
-        navigate('/city')
-    }
     // 获取store的数据
     const { areaObj } = useSelector((state) => ({
         areaObj: state.city.areaObj
@@ -20,7 +14,7 @@ const Search = memo(() => {
     return (
         <SearchWarpper>
             <div className='search'>
-                <div className="location" onClick={() => changeToCity()}>
+                <div className="location" onClick={() => navigate('/city')}>
                     <span className='name'>{areaObj?.label}</span>
                     <i className='iconfont'>
                         <DownFill />
@@ -34,7 +28,7 @@ const Search = memo(() => {
                 </div>
 
             </div>
-            <i className='iconfont' onClick={() => changeToRouter()}>
+            <i className='iconfont' onClick={() => navigate('/map')}>
                 <GlobalOutline />
             </i>
         </SearchWarpper>
